@@ -8,9 +8,9 @@ const generateTokenAndcookies = async (user_id, res) => {
     });
     
     res.cookie("jwt", token, {
-        httpsOnly : true,
+        httpsOnly : false,
         secure : true,
-        sameSite : "strict"
+        sameSite : "none"
     });   
 
     await User.findByIdAndUpdate(user_id , {token})
